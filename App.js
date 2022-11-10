@@ -1,117 +1,84 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import { List,Appbar, Title, Paragraph,Divider, Card} from 'react-native-paper';
-
-
-// function App() {
-//   return (
-    
-//     <List.Section style = {styles.list}>
-//       <Card style={styles.card}>
-//       <Card.Content>
-//         <Title>Card title</Title>
-//         <Paragraph>card Paragraph</Paragraph>
-//       </Card.Content>
-//       </Card>
-//       <Card style={styles.card}>
-//       <Card.Content>
-//         <Title>Card title</Title>
-//         <Paragraph>card Paragraph</Paragraph>
-//       </Card.Content>
-//       </Card>
-//       <Card style={styles.card}>
-//       <Card.Content>
-//         <Title>Card title</Title>
-//         <Paragraph>card Paragraph</Paragraph>
-//       </Card.Content>
-//       </Card>
-//       <Card style={styles.card}>
-//       <Card.Content>
-//         <Title>Card title</Title>
-//         <Paragraph>card Paragraph</Paragraph>
-//       </Card.Content>
-//       </Card>
-//     </List.Section>
-    
-//   );
-// }
-
-// function AppBar (){
-//   return(
-//     <Appbar.Header>
-//     <Appbar.BackAction onPress={() => {}} />
-//     </Appbar.Header>
-//   );
-// }
-
-
-// export default function MyApp () {
-//   return (
-//     App()
-    
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     justifyContent: 'center',
-//   },
-//   list:{
-//     flex:1,
-//     padding:20,
-//     margin:20,
-//   },
-//   divider:{
-//     color:'red',
-//   },
-//   card:{
-//     flex:0.4,
-//     justifyContent: 'center',
-//     marginTop:10,
-//     marginBottom:10,
-//     borderRadius:15,
-
-//   }
-// });
-
 import * as React from 'react';
-import { BottomNavigation, Text } from 'react-native-paper';
+import { Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
 
-const GitDoc = () => <Text>Git</Text>;
+function ComandScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Home!</Text>
+    </View>
+  );
+}
 
-const GitInstall = () => <Text>Instalação</Text>;
+function InstallScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
 
-const GitComand = () => <Text>Comandos</Text>;
+function DocScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
+      <Text>
+        Tela DocScreen
+      </Text>
+    </View>
+  );
 
-const GitLinks = () => <Text>Links</Text>;
+}
 
+const Tab = createBottomTabNavigator();
 
+function MyTabs() {
+  return (
+    <Tab.Navigator
+    screenOptions={
 
-const HomeScreen = () => {
-    const [index, setIndex] = React.useState(0);
-    const [routes] = React.useState([
-      { key: 'Git', title: 'Git', focusedIcon: 'heart', unfocusedIcon: 'heart-outline'},
-      { key: 'Instalação', title: 'Instalação', focusedIcon: 'album' },
-      { key: 'Comandos', title: 'Comandos', focusedIcon: 'history' },
-      { key: 'Links', title: 'Links', focusedIcon: 'bell', unfocusedIcon: 'bell-outline' },
-    ]);
+      ({ route }) => ({
 
-    const renderScene = BottomNavigation.SceneMap({
-      Git: GitDoc,
-      Instalação: GitInstall,
-      Comandos: GitComand,
-      Links: GitLinks,
-      });
+        tabBarIcon: ({focused, color, size}) =>{
+          let iconName;
 
-      return (
-        <BottomNavigation
-          navigationState={{ index, routes }}
-          onIndexChange={setIndex}
-          renderScene={renderScene}
-        />
-      );
-    };
+          if (route.name === 'Documentação') {
+            iconName = focused ? 'ios-book': 'ios-book';
+            size = 30;
+            color = 'purple'
+            
+          }else if (route.name === 'Instalação') {
+            iconName = focused ? 'construct' : 'construct';
+            size = 30;
+            color = 'purple'
+          }else if (route.name ==='Comandos') {
+            iconName = focused ? 'code-working' : 'code'
+            size = 30;
+            color = 'purple'
+          }
+          return < Ionicons name = {iconName} size = {size} color = {color}/>;
 
-    export default HomeScreen;
+        },
+        
+        
+
+      })
+    }
+    
+    >
+      
+      <Tab.Screen name="Documentação" component={DocScreen} />
+      <Tab.Screen name="Instalação" component={InstallScreen} />
+      <Tab.Screen name="Comandos" component={ComandScreen} />
+    </Tab.Navigator >
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyTabs />
+    </NavigationContainer>
+  );
+}
