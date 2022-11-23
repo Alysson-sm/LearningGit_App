@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { Card, Paragraph, Title, Divider, Button } from 'react-native-paper';
+import { Header } from 'react-native/Libraries/NewAppScreen';
 
 
 
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
   carddoc: {
     backgroundColor: '#202529',
     padding: 10,
-    marginTop: 10
+    marginTop: 10,
 
   },
 
@@ -31,28 +32,68 @@ const styles = StyleSheet.create({
 
   paragraphdoc: {
     color: '#FFFFFF',
-    fontSize: 16,
+    fontSize: 18,
     letterSpacing: 1,
 
   },
 
   //documentação style
 
+
+  //intalação style
+
+
+  scrollviewinstall:{
+    flex:1,
+    backgroundColor: '#32383D',
+    padding:5,
+  },
+  
+  dividerinstall: {
+    padding: 1,
+    marginBottom:15,
+    backgroundColor:'#F8B820',
+  },
+  
+  cardinstall: {
+      flex: 1,
+      padding: 10,
+      marginTop: 10,
+      backgroundColor: '#202028',
+      borderTopLeftRadius: 10,
+      borderTopRightRadius: 10,
+      borderBottomLeftRadius: 10,
+      borderBottomRightRadius: 10,
+  },
+
+  titleinstall: {
+    color: '#FFFFFF',
+    fontSize: 22,
+  },
+
+  paragraphinstall: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    letterSpacing: 1,
+  },
+  comandinstall: {
+    backgroundColor: '#787880',
+    color:'white',
+    textAlign:'justify',
+    fontSize: 18,
+    marginVertical:15,
+  },
+  //intalação style
+
   //comandos style
   
-  /*
-#101818
+/*
+Paletas de cores:
 #202028
-#403840
-#D0C8D0
 #F8A030
 #F8B820
-#C0C8C8
-#484848
-#282828
-#303030
-#686870
 #787880
+#CED0CE
   */
 
 
@@ -61,7 +102,7 @@ const styles = StyleSheet.create({
 
   scrollviewcomand: {
     flex: 1,
-    backgroundColor: '#787880',
+    backgroundColor: '#32383D',
     padding: 5,
   },
   dividercomand: {
@@ -73,7 +114,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 3,
     marginVertical: 3,
-    backgroundColor: '#202028',
+    backgroundColor: '#202529',
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     borderBottomLeftRadius: 10,
@@ -83,16 +124,17 @@ const styles = StyleSheet.create({
   },
 
   titlecomandscreen: {
-    color: '#CED0CE',
+    color: '#FFFFFF',
+    fontSize:22,
   },
 
   paragraphcomandscreen: {
-    color: '#CED0CE',
-    fontSize: 14,
+    color: '#FFFFFF',
+    fontSize: 18,
     letterSpacing: 1,
   },
   examplecodcomandoscreen: {
-    backgroundColor: '#F8A030',
+    backgroundColor: '#787880',
     color:'white'
   },
   //comandos style
@@ -104,32 +146,48 @@ const styles = StyleSheet.create({
 
 function DocScreen() {
   return (
-
+    
     <SafeAreaView style={styles.safeareaviewdoc}>
       <ScrollView>
-
         <Card style={styles.carddoc}>
           <Card.Content>
+           
             <Title style={styles.titledoc}>
               O que é Git?
             </Title>
+
             <Divider style={styles.dividercomand} />
 
             <Paragraph style={styles.paragraphdoc}>
-              De longe, o sistema de controle de versão moderno mais usado no mundo hoje é o Git. O Git é um projeto de código aberto maduro e com manutenção ativa desenvolvido em 2005 por Linus Torvalds, o famoso criador do kernel do sistema operacional Linux. Um número impressionante de projetos de software depende do Git para controle de versão, incluindo projetos comerciais e de código-fonte aberto. Os desenvolvedores que trabalharam com o Git estão bem representados no pool de talentos de desenvolvimento de software disponíveis e funcionam bem em uma ampla variedade de sistemas operacionais e IDEs (Ambientes de Desenvolvimento Integrado).
+            O Git é um projeto de código aberto (OpenSource) consolidado e com manutenção ativa por parte da sua equipe de desenvolvimento, foi desenvolvido em 2005 por Linus Torvalds, o famoso criador do kernel Linux. 
+            {'\n'}
+            Um número enorme de projetos hoje são dependentes do Git para controle de versão, entre os projetos estão projetos comerciais e de código fonte aberto.
+            {'\n'}
+            Tendo sua arquitetura distribuída , o Git é um DVCS (Distributed Version Control System), no portugues Sistema de controle de versão distribuído.
+            {'\n'}
+            {'\n'}
             </Paragraph>
 
             <Paragraph style={styles.paragraphdoc}>
-              De longe, o sistema de controle de versão moderno mais usado no mundo hoje é o Git. O Git é um projeto de código aberto maduro e com manutenção ativa desenvolvido em 2005 por Linus Torvalds, o famoso criador do kernel do sistema operacional Linux. Um número impressionante de projetos de software depende do Git para controle de versão, incluindo projetos comerciais e de código-fonte aberto. Os desenvolvedores que trabalharam com o Git estão bem representados no pool de talentos de desenvolvimento de software disponíveis e funcionam bem em uma ampla variedade de sistemas operacionais e IDEs (Ambientes de Desenvolvimento Integrado).
+            Mas o que isso significa ?
+            {'\n'}
             </Paragraph>
 
             <Paragraph style={styles.paragraphdoc}>
-              De longe, o sistema de controle de versão moderno mais usado no mundo hoje é o Git. O Git é um projeto de código aberto maduro e com manutenção ativa desenvolvido em 2005 por Linus Torvalds, o famoso criador do kernel do sistema operacional Linux. Um número impressionante de projetos de software depende do Git para controle de versão, incluindo projetos comerciais e de código-fonte aberto. Os desenvolvedores que trabalharam com o Git estão bem representados no pool de talentos de desenvolvimento de software disponíveis e funcionam bem em uma ampla variedade de sistemas operacionais e IDEs (Ambientes de Desenvolvimento Integrado).
-            </Paragraph>
+            Em vez de ter apenas um único local para o histórico completo da versão do software, como é comum em sistemas de controle de versão outrora populares como CVS(Concurrent Version System ) ou Subversion (também conhecido como SVN), no Git, a cópia de trabalho de todo desenvolvedor do código também é um repositório que pode conter o histórico completo de todas as alterações.
+            {'\n'}
+            {'\n'}
+            As características brutas de desempenho do Git são muito fortes quando comparadas a muitas alternativas. Fazer o commit de novas alterações, branches, mesclagem e comparação de versões anteriores – tudo é otimizado para desempenho. Os algoritmos implementados no Git aproveitam o conhecimento profundo sobre atributos comuns de árvores de arquivos de código-fonte reais, como costumam ser modificados ao longo do tempo e quais são os padrões de acesso.
+            {'\n'}
+            {'\n'}
+            O Git tem excelente suporte da comunidade e uma vasta base de usuários. A documentação é excelente e abundante, incluindo livros, tutoriais e sites dedicados. Existem também podcasts e tutoriais em vídeo. O código aberto reduz o custo para desenvolvedores amadores, pois eles podem usar o Git sem pagar uma taxa.
+            {'\n'}
+            {'\n'}
+            O Git é um projeto de código aberto muito bem suportado, com mais de uma década de administração sólida. Os mantenedores do projeto mostraram um julgamento equilibrado e uma abordagem madura para atender às necessidades de longo prazo dos usuários, com lançamentos regulares que melhoram a usabilidade e a funcionalidade.
 
+            </Paragraph>
           </Card.Content>
         </Card>
-
       </ScrollView>
     </SafeAreaView>
 
@@ -139,46 +197,55 @@ function DocScreen() {
 
 function InstallScreen() {
   return (
-    <ScrollView style={styles.scrollviewcomand}>
-      <Card style={styles.cardcomandscreen}>
-        <Title style={styles.titlecomandscreen}>
+    <ScrollView style={styles.scrollviewinstall}>
+      <Card style={styles.cardinstall}>
+        <Title style={styles.titleinstall}>
           Linux
         </Title>
-        <Paragraph style={styles.paragraphcomandscreen}>
+        <Divider style={styles.dividerinstall}/>
+        <Paragraph style={styles.paragraphinstall}>
           Se você deseja instalar as ferramentas básicas do Git no Linux por meio de um instalador binário, geralmente pode fazê-lo por meio da ferramenta de gerenciamento de pacotes que vem com sua distribuição.
           Se você estiver no Fedora (ou qualquer distribuição baseada em RPM intimamente relacionada, como RHEL ou CentOS), você pode usar dnf:
         </Paragraph>
-        <Paragraph style={styles.examplecodcomandoscreen}>
+        <Paragraph style={styles.paragraphinstall}>
           $ sudo dnf install git-all
         </Paragraph>
-        <Paragraph style={styles.paragraphcomandscreen}>
+        <Paragraph style={styles.paragraphinstall}>
           Se você estiver em uma distribuição baseada em Debian, como o Ubuntu, tente apt:
         </Paragraph>
-        <Paragraph style={styles.examplecodcomandoscreen}>
+        <Paragraph style={styles.comandinstall}>
           $ sudo apt install git-all
         </Paragraph>
-        <Title style={styles.titlecomandscreen}>
+        </Card>
+
+        <Card style={styles.cardinstall}>
+        <Title style={styles.titleinstall}>
           macOS
         </Title >
-        <Paragraph style={styles.paragraphcomandscreen}>
+        <Divider style={styles.dividerinstall}/>
+        <Paragraph style={styles.paragraphinstall}>
           Existem várias maneiras de instalar o Git em um Mac. O mais fácil é provavelmente instalar as ferramentas de linha de comando do Xcode. No Mavericks (10.9) ou superior, você pode fazer isso simplesmente tentando executar gita partir do Terminal na primeira vez.
         </Paragraph>
-        <Paragraph style={styles.examplecodcomandoscreen}>
+        <Paragraph style={styles.comandinstall}>
           $ git --version
         </Paragraph>
-        <Paragraph style={styles.paragraphcomandscreen}>
+        <Paragraph style={styles.paragraphinstall}>
           Se você deseja uma versão mais atualizada, também pode instalá-la por meio de um instalador binário. Um instalador do macOS Git é mantido e está disponível para download no site do Git, em https://git-scm.com/download/mac.
         </Paragraph>
-        <Paragraph style={styles.examplecodcomandoscreen}>
-           https://git-scm.com/download/mac.
+        <Paragraph style={styles.comandinstall}>
+          https://git-scm.com/download/mac.
         </Paragraph>
-        <Title style={styles.titlecomandscreen}>
+        </Card>
+
+        <Card style={styles.cardinstall}>
+        <Title style={styles.titleinstall}>
           Instalando no Windows
         </Title>
-        <Paragraph style={styles.paragraphcomandscreen}> 
+        <Divider style={styles.dividerinstall}/>
+        <Paragraph style={styles.paragraphinstall}> 
           Existem varias maneiras d einstala o Git no windows, porem a mais simple e convecianal e por meio de um arquivo exe que pode ser baixado diretamento pelo link abaixo
         </Paragraph>
-        <Paragraph style={styles.examplecodcomandoscreen}>
+        <Paragraph style={styles.comandinstall}>
           https://github.com/git-for-windows/git/releases/download/v2.38.1.windows.1/Git-2.38.1-64-bit.exe | 32 bit
         </Paragraph>
       </Card>
@@ -343,45 +410,34 @@ const Tab = createBottomTabNavigator();
 function MyTabs() {
   return (
     <Tab.Navigator
+    
+    screenOptions={({ route }) => ({
+      tabBarIcon: ({color, size }) => {
+        let iconName;
+
+        if (route.name === 'Introdução ao Git') {
+          iconName = 'list';
+        } else if (route.name === 'Guia de instalação') {
+          iconName = 'construct'
+        }else if (route.name === 'Comandos basicos') {
+          iconName = 'code'
+        }
+
+
+        
+        return <Ionicons name={iconName} size={size} color={color} />;
+      },
+      tabBarActiveTintColor: '#F8A030',
+      tabBarInactiveTintColor: '#787880',
+      tabBarShowLabel: false,
+      tabBarStyle:{
+        backgroundColor:'#202028'
+      },
+      
+    })}
+   
 
       
-      screenOptions={
-
-        ({ route }) => ({
-
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-
-            if (route.name === 'Documentação') {
-              iconName = focused ? 'ios-book' : 'ios-book';
-              size = 30;
-
-
-
-            } else if (route.name === 'Instalação') {
-              iconName = focused ? 'construct' : 'construct';
-              size = 30;
-
-            } else if (route.name === 'Comandos') {
-              iconName = focused ? 'code-working' : 'code'
-              size = 30;
-
-            }
-            
-            return < Ionicons name={iconName} size={size} color={color} />
-
-          },
-          
-
-        })}
-      tabBarOptions={{
-        activeTintColor: '#101818',
-        inactiveTintColor: '#777',
-        showLabel: false,
-
-
-
-      }}
 
 
 
@@ -389,9 +445,24 @@ function MyTabs() {
 
     >
 
-      <Tab.Screen name="Documentação" component={DocScreen} />
-      <Tab.Screen name="Instalação" component={InstallScreen} />
-      <Tab.Screen name="Comandos" component={ComandScreen} />
+      <Tab.Screen name="Introdução ao Git" component={DocScreen}  options={{
+            headerStyle: {
+              backgroundColor: '#32383D',
+            },
+            headerTintColor: '#CED0CE',
+          }}/>
+      <Tab.Screen name="Guia de instalação" component={InstallScreen} options={{
+            headerStyle: {
+              backgroundColor: '#32383D',
+            },
+            headerTintColor: '#CED0CE',
+          }}/>
+      <Tab.Screen name="Comandos basicos" component={ComandScreen} options={{
+            headerStyle: {
+              backgroundColor: '#32383D',
+            },
+            headerTintColor: '#CED0CE',
+          }} />
     </Tab.Navigator >
   );
 }
@@ -399,7 +470,7 @@ function MyTabs() {
 export default function App() {
   return (
     <NavigationContainer>
-      <MyTabs />
+      <MyTabs/>
     </NavigationContainer>
   );
 }
